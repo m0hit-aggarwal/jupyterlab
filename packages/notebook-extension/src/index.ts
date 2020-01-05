@@ -1311,11 +1311,12 @@ function addCommands(
       if (!current) {
         return;
       }
-
+      console.log('Reconnect to Kernel');
       const kernel = current.context.session.kernel;
-
       if (kernel) {
         return kernel.reconnect();
+      } else {
+        current.context.session.reconnect();
       }
     },
     isEnabled
